@@ -1,0 +1,15 @@
+# Build artifacts
+*.o
+encrypt_decrypt
+cryption
+
+# Node
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Logs
+npm-debug.log*
+
+# IDE
+.vscode/

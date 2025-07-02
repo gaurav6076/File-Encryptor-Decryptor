@@ -9,11 +9,9 @@ export default function UploadView() {
   const handleEncrypt = async () => {
     if (!file) return;
     setProcessing(true);
-    const formData = new FormData();
-    formData.append('file', file);
-    const res = await fetch('http://localhost:3000/encrypt', {
+    const res = await fetch(`http://localhost:3000/encrypt?filename=${encodeURIComponent(file.name)}`, {
       method: 'POST',
-      body: formData
+      body: file
     });
     const blob = await res.blob();
     setProcessing(false);
@@ -24,16 +22,14 @@ export default function UploadView() {
   const handleDecrypt = async () => {
     if (!file) return;
     setProcessing(true);
-    const formData = new FormData();
-    formData.append('file', file);
-    const res = await fetch('http://localhost:3000/decrypt', {
+    const res = await fetch(`http://localhost:3000/decrypt?filename=${encodeURIComponent(file.name)}`, {
       method: 'POST',
-      body: formData
+      body: file
     });
     const blob = await res.blob();
     setProcessing(false);
     setMessage('File decrypted');
-    downloadBlob(blob, file.name.replace(/\.enc$/, '.dec'));
+    downloadBlob(blob, file.name.replace(/\.enc$/, '') + '.dec');
   };
 
   const downloadBlob = (blob, filename) => {

@@ -187,8 +187,7 @@ A simple React + Node implementation is provided in `frontend/` and `backend/`.
 1. **Backend**
    ```bash
    cd backend
-   npm install    # requires internet access
-   npm start
+   node index.js
    ```
    The server listens on `http://localhost:3000` and exposes `/encrypt` and `/decrypt` endpoints.
 
@@ -198,6 +197,6 @@ A simple React + Node implementation is provided in `frontend/` and `backend/`.
    npm install    # requires internet access
    npm run dev
    ```
-   Visit `http://localhost:5173` in your browser. Sign in via Clerk and upload files to encrypt or decrypt.
+   Visit `http://localhost:5173` in your browser and log in with any credentials. Upload files to encrypt or decrypt.
 
 Both folders are optional and do not affect the C++ CLI.
